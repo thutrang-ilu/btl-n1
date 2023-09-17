@@ -1,0 +1,101 @@
+@model IEnumerable<BTLN1.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountSex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountBank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountCCCD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViTriAccountID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Luong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HopDong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountEnd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountSex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountBank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountCCCD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViTriAccountID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Luong.LuongID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HopDong.HopDongID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountEnd)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
