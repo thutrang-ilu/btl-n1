@@ -54,8 +54,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ViTriAccountID" class="control-label"></label>
-                <input asp-for="ViTriAccountID" class="form-control" />
-                <span asp-validation-for="ViTriAccountID" class="text-danger"></span>
+                <select asp-for="ViTriAccountID" class ="form-control" asp-items="ViewBag.ViTriAccountID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="LuongID" class="control-label"></label>

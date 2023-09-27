@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BTLN1.Data;
 using BTLN1.Models;
+using BTLN1.Models.Process;
 
 namespace BTLN1.Controllers
 {
     public class AccountController : Controller
     {
+        StringProcess strPro = new StringProcess();
         private readonly ApplicationDbContext _context;
 
         public AccountController(ApplicationDbContext context)
@@ -22,7 +24,7 @@ namespace BTLN1.Controllers
         // GET: Account
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Account.Include(a => a.HopDong).Include(a => a.Luong);
+            var applicationDbContext = _context.Account.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.AccountViTri);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,23 +36,37 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Account
-                .Include(a => a.HopDong)
-                .Include(a => a.Luong)
+            var Account = await _context.Account
+                .Include(s => s.HopDong)
+                .Include(s => s.Luong)
+                .Include(s => s.AccountViTri)
                 .FirstOrDefaultAsync(m => m.AccountID == id);
-            if (account == null)
+            if (Account == null)
             {
                 return NotFound();
             }
 
-            return View(account);
+            return View(Account);
         }
 
         // GET: Account/Create
         public IActionResult Create()
         {
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID");
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID");
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong");
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong");
+            ViewData["ViTriAccountID"] = new SelectList(_context.Set<AccountViTri>(), "ViTriAccountID", "VitriAccount");
+            var newID = "";
+            if (_context.Account.Count() == 0)
+            {
+                //khoi tao 1 ma moi
+                newID = "ACCO00001";
+            }
+            else
+            {
+                var id = _context.Account.OrderByDescending(m => m.AccountID).First().AccountID;
+                newID = strPro.AutoGenerateKey(id);
+            }
+            ViewBag.AccountID = newID;
             return View();
         }
 
@@ -59,17 +75,18 @@ namespace BTLN1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccountID,AccountName,AccountPhoneNumber,AccountAddress,AccountBirth,AccountSex,AccountBank,AccountCCCD,ViTriAccountID,LuongID,HopDongID,AccountStart,AccountEnd")] Account account)
+        public async Task<IActionResult> Create([Bind("AccountID,AccountName,AccountPhoneNumber,AccountAddress,AccountBirth,AccountSex,AccountBank,AccountCCCD,ViTriAccountID,LuongID,HopDongID,AccountStart,AccountEnd")] Account Account)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(account);
+                _context.Add(Account);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID", account.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID", account.LuongID);
-            return View(account);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Account.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Account.LuongID);
+            ViewData["ViTriAccountID"] = new SelectList(_context.Set<AccountViTri>(), "ViTriAccountID", "VitriAccount", Account.ViTriAccountID);
+            return View(Account);
         }
 
         // GET: Account/Edit/5
@@ -80,14 +97,15 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Account.FindAsync(id);
-            if (account == null)
+            var Account = await _context.Account.FindAsync(id);
+            if (Account == null)
             {
                 return NotFound();
             }
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID", account.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID", account.LuongID);
-            return View(account);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Account.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Account.LuongID);
+            ViewData["ViTriAccountID"] = new SelectList(_context.Set<AccountViTri>(), "ViTriAccountID", "VitriAccount", Account.ViTriAccountID);
+            return View(Account);
         }
 
         // POST: Account/Edit/5
@@ -95,9 +113,9 @@ namespace BTLN1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("AccountID,AccountName,AccountPhoneNumber,AccountAddress,AccountBirth,AccountSex,AccountBank,AccountCCCD,ViTriAccountID,LuongID,HopDongID,AccountStart,AccountEnd")] Account account)
+        public async Task<IActionResult> Edit(string id, [Bind("AccountID,AccountName,AccountPhoneNumber,AccountAddress,AccountBirth,AccountSex,AccountBank,AccountCCCD,ViTriAccountID,LuongID,HopDongID,AccountStart,AccountEnd")] Account Account)
         {
-            if (id != account.AccountID)
+            if (id != Account.AccountID)
             {
                 return NotFound();
             }
@@ -106,12 +124,12 @@ namespace BTLN1.Controllers
             {
                 try
                 {
-                    _context.Update(account);
+                    _context.Update(Account);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AccountExists(account.AccountID))
+                    if (!AccountExists(Account.AccountID))
                     {
                         return NotFound();
                     }
@@ -122,9 +140,10 @@ namespace BTLN1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID", account.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID", account.LuongID);
-            return View(account);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Account.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Account.LuongID);
+            ViewData["ViTriAccountID"] = new SelectList(_context.Set<AccountViTri>(), "ViTriAccountID", "VitriAccount", Account.ViTriAccountID);
+            return View(Account);
         }
 
         // GET: Account/Delete/5
@@ -135,16 +154,17 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Account
-                .Include(a => a.HopDong)
-                .Include(a => a.Luong)
+            var Account = await _context.Account
+                .Include(s => s.HopDong)
+                .Include(s => s.Luong)
+                .Include(s => s.AccountViTri)
                 .FirstOrDefaultAsync(m => m.AccountID == id);
-            if (account == null)
+            if (Account == null)
             {
                 return NotFound();
             }
 
-            return View(account);
+            return View(Account);
         }
 
         // POST: Account/Delete/5
@@ -156,10 +176,10 @@ namespace BTLN1.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Account'  is null.");
             }
-            var account = await _context.Account.FindAsync(id);
-            if (account != null)
+            var Account = await _context.Account.FindAsync(id);
+            if (Account != null)
             {
-                _context.Account.Remove(account);
+                _context.Account.Remove(Account);
             }
             
             await _context.SaveChangesAsync();

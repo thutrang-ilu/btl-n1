@@ -10,5 +10,12 @@ namespace BTLN1.Data
             
         }
         public DbSet<BTLN1.Models.Account> Account { get; set; } = default!;
+        public DbSet<BTLN1.Models.AccountViTri> AccountViTri { get; set; } = default!;
+        public DbSet<BTLN1.Models.Ceo> Ceo { get; set; } = default!;
+        public DbSet<BTLN1.Models.CeoViTri> CeoViTri { get; set; } = default!;
+        public DbSet<BTLN1.Models.CongNhan> CongNhan { get; set; } = default!;
+        public DbSet<BTLN1.Models.HopDong> HopDong { get; set; } = default!;
+        public DbSet<BTLN1.Models.Luong> Luong { get; set; } = default!;
+        public DbSet<BTLN1.Models.Sale> Sale { get; set; } = default!;
     }
 }
