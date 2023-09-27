@@ -29,6 +29,7 @@ namespace BTLN1.Models
         public string ViTriAccountID { get; set; }
         [ForeignKey("ViTriAccountID")]
         [Display(Name = "Vị Trí")]
+        public AccountViTri? AccountViTri { get; set; }
         public string LuongID { get; set; }
         [ForeignKey("LuongID")]
         [Display(Name = "Lương")]

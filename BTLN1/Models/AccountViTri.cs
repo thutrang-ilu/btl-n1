@@ -1,13 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace BTLN1.Models
 {
-    [Table("HopDong")]
-    public class HopDong
+    public class AccountViTri
     {
         [Key]
-        public string HopDongID { get; set; }
-        public string TimeHopDong { get; set; }
+        public string ViTriAccountID { get; set; }
+        public string VitriAccount { get; set; }
     }
 }

@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BTLN1.Models
 {
-    [Table("HopDong")]
-    public class HopDong
+    public class StaffViTri
     {
         [Key]
-        public string HopDongID { get; set; }
-        public string TimeHopDong { get; set; }
+        public string ViTriStaffID { get; set; }
+        public string VitriStaff { get; set; }
     }
 }
