@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BTLN1.Data;
 using BTLN1.Models;
+using BTLN1.Models.Process;
+using BTLN1.Data;
 
 namespace BTLN1.Controllers
 {
     public class CeoController : Controller
     {
+        StringProcess strPro = new StringProcess();
         private readonly ApplicationDbContext _context;
 
         public CeoController(ApplicationDbContext context)
@@ -22,7 +24,7 @@ namespace BTLN1.Controllers
         // GET: Ceo
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Ceo.Include(c => c.CeoViTri).Include(c => c.HopDong).Include(c => c.Luong);
+            var applicationDbContext = _context.Ceo.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.CeoViTri);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,25 +36,37 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var ceo = await _context.Ceo
-                .Include(c => c.CeoViTri)
-                .Include(c => c.HopDong)
-                .Include(c => c.Luong)
+            var Ceo = await _context.Ceo
+                .Include(s => s.HopDong)
+                .Include(s => s.Luong)
+                .Include(s => s.CeoViTri)
                 .FirstOrDefaultAsync(m => m.CeoID == id);
-            if (ceo == null)
+            if (Ceo == null)
             {
                 return NotFound();
             }
 
-            return View(ceo);
+            return View(Ceo);
         }
 
         // GET: Ceo/Create
         public IActionResult Create()
         {
-            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "ViTriCeoID");
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID");
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID");
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong");
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong");
+            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "VitriCeo");
+            var newID = "";
+            if (_context.Ceo.Count() == 0)
+            {
+                //khoi tao 1 ma moi
+                newID = "CEO000001";
+            }
+            else
+            {
+                var id = _context.Ceo.OrderByDescending(m => m.CeoID).First().CeoID;
+                newID = strPro.AutoGenerateKey(id);
+            }
+            ViewBag.CeoID = newID;
             return View();
         }
 
@@ -61,18 +75,18 @@ namespace BTLN1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CeoID,CeoName,CeoPhoneNumber,CeoAddress,CeoBirth,CeoSex,CeoBank,CeoCCCD,ViTriCeoID,LuongID,HopDongID,CeoStart,CeoEnd")] Ceo ceo)
+        public async Task<IActionResult> Create([Bind("CeoID,CeoName,CeoPhoneNumber,CeoAddress,CeoBirth,CeoSex,CeoBank,CeoCCCD,ViTriCeoID,LuongID,HopDongID,CeoStart,CeoEnd")] Ceo Ceo)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(ceo);
+                _context.Add(Ceo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "ViTriCeoID", ceo.ViTriCeoID);
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID", ceo.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID", ceo.LuongID);
-            return View(ceo);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Ceo.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Ceo.LuongID);
+            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "VitriCeo", Ceo.ViTriCeoID);
+            return View(Ceo);
         }
 
         // GET: Ceo/Edit/5
@@ -83,15 +97,15 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var ceo = await _context.Ceo.FindAsync(id);
-            if (ceo == null)
+            var Ceo = await _context.Ceo.FindAsync(id);
+            if (Ceo == null)
             {
                 return NotFound();
             }
-            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "ViTriCeoID", ceo.ViTriCeoID);
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID", ceo.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID", ceo.LuongID);
-            return View(ceo);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Ceo.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Ceo.LuongID);
+            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "VitriCeo", Ceo.ViTriCeoID);
+            return View(Ceo);
         }
 
         // POST: Ceo/Edit/5
@@ -99,9 +113,9 @@ namespace BTLN1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CeoID,CeoName,CeoPhoneNumber,CeoAddress,CeoBirth,CeoSex,CeoBank,CeoCCCD,ViTriCeoID,LuongID,HopDongID,CeoStart,CeoEnd")] Ceo ceo)
+        public async Task<IActionResult> Edit(string id, [Bind("CeoID,CeoName,CeoPhoneNumber,CeoAddress,CeoBirth,CeoSex,CeoBank,CeoCCCD,ViTriCeoID,LuongID,HopDongID,CeoStart,CeoEnd")] Ceo Ceo)
         {
-            if (id != ceo.CeoID)
+            if (id != Ceo.CeoID)
             {
                 return NotFound();
             }
@@ -110,12 +124,12 @@ namespace BTLN1.Controllers
             {
                 try
                 {
-                    _context.Update(ceo);
+                    _context.Update(Ceo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CeoExists(ceo.CeoID))
+                    if (!CeoExists(Ceo.CeoID))
                     {
                         return NotFound();
                     }
@@ -126,10 +140,10 @@ namespace BTLN1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "ViTriCeoID", ceo.ViTriCeoID);
-            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "HopDongID", ceo.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "LuongID", ceo.LuongID);
-            return View(ceo);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Ceo.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Ceo.LuongID);
+            ViewData["ViTriCeoID"] = new SelectList(_context.Set<CeoViTri>(), "ViTriCeoID", "VitriCeo", Ceo.ViTriCeoID);
+            return View(Ceo);
         }
 
         // GET: Ceo/Delete/5
@@ -140,17 +154,17 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var ceo = await _context.Ceo
-                .Include(c => c.CeoViTri)
-                .Include(c => c.HopDong)
-                .Include(c => c.Luong)
+            var Ceo = await _context.Ceo
+                .Include(s => s.HopDong)
+                .Include(s => s.Luong)
+                .Include(s => s.CeoViTri)
                 .FirstOrDefaultAsync(m => m.CeoID == id);
-            if (ceo == null)
+            if (Ceo == null)
             {
                 return NotFound();
             }
 
-            return View(ceo);
+            return View(Ceo);
         }
 
         // POST: Ceo/Delete/5
@@ -162,10 +176,10 @@ namespace BTLN1.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Ceo'  is null.");
             }
-            var ceo = await _context.Ceo.FindAsync(id);
-            if (ceo != null)
+            var Ceo = await _context.Ceo.FindAsync(id);
+            if (Ceo != null)
             {
-                _context.Ceo.Remove(ceo);
+                _context.Ceo.Remove(Ceo);
             }
             
             await _context.SaveChangesAsync();
