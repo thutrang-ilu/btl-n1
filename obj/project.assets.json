@@ -11094,11 +11094,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\BTL_N1\\BTLN1\\BTLN1.csproj",
+      "projectUniqueName": "D:\\BTL_PTPMQL\\BTLN1\\BTLN1.csproj",
       "projectName": "BTLN1",
-      "projectPath": "C:\\Users\\Asus\\Desktop\\BTL_N1\\BTLN1\\BTLN1.csproj",
+      "projectPath": "D:\\BTL_PTPMQL\\BTLN1\\BTLN1.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\Desktop\\BTL_N1\\BTLN1\\obj\\",
+      "outputPath": "D:\\BTL_PTPMQL\\BTLN1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config"
