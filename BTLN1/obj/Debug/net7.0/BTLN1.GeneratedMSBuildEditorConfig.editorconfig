@@ -9,197 +9,257 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BTLN1
 build_property.RootNamespace = BTLN1
-build_property.ProjectDir = c:\Users\Asus\Desktop\BTL_N1\BTLN1\
+build_property.ProjectDir = d:\BTL_PTPMQL\BTLN1\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\Asus\Desktop\BTL_N1\BTLN1
+build_property.MSBuildProjectDirectory = d:\BTL_PTPMQL\BTLN1
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/AccountViTri/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/AccountViTri/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFZpVHJpXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/AccountViTri/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/AccountViTri/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFZpVHJpXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/AccountViTri/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/AccountViTri/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFZpVHJpXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/AccountViTri/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/AccountViTri/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFZpVHJpXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/AccountViTri/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/AccountViTri/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFZpVHJpXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Account/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Account/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Account/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Account/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Account/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Account/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Account/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Account/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CeoViTri/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CeoViTri/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvVmlUcmlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CeoViTri/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CeoViTri/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvVmlUcmlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CeoViTri/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CeoViTri/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvVmlUcmlcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CeoViTri/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CeoViTri/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvVmlUcmlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CeoViTri/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CeoViTri/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvVmlUcmlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Ceo/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Ceo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Ceo/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Ceo/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Ceo/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Ceo/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Ceo/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Ceo/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Ceo/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Ceo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CongNhan/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CongNhan/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ05oYW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CongNhan/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CongNhan/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ05oYW5cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CongNhan/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CongNhan/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ05oYW5cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CongNhan/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CongNhan/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ05oYW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/CongNhan/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/CongNhan/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZ05oYW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Home/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Home/Privacy.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/HopDong/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/HopDong/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9wRG9uZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/HopDong/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/HopDong/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9wRG9uZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/HopDong/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/HopDong/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9wRG9uZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/HopDong/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/HopDong/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9wRG9uZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/HopDong/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/HopDong/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9wRG9uZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Luong/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Luong/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHVvbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Luong/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Luong/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHVvbmdcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Luong/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Luong/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHVvbmdcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Luong/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Luong/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHVvbmdcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Luong/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Luong/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTHVvbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Sale/Create.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/SaleViTri/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVZpVHJpXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/SaleViTri/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVZpVHJpXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/SaleViTri/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVZpVHJpXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/SaleViTri/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVZpVHJpXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/SaleViTri/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVZpVHJpXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/Sale/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Sale/Delete.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Sale/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Sale/Details.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Sale/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Sale/Edit.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Sale/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Sale/Index.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Sale/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Shared/Error.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/_ViewImports.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/StaffViTri/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZWaVRyaVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/StaffViTri/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZWaVRyaVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/StaffViTri/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZWaVRyaVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/StaffViTri/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZWaVRyaVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/StaffViTri/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZWaVRyaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/Staff/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/Staff/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/Staff/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/Staff/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/Staff/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/BTL_PTPMQL/BTLN1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/_ViewStart.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Asus/Desktop/BTL_N1/BTLN1/Views/Shared/_Layout.cshtml]
+[d:/BTL_PTPMQL/BTLN1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-4cckig6h9t

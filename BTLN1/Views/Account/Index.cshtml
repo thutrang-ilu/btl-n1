@@ -4,18 +4,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Danh sách Phòng Kế Toán</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Thêm nhân viên mới</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AccountName)
+                @Html.DisplayNameFor(model => model.AccountID)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.AccountPhoneNumber)
             </th>
             <th>
@@ -23,20 +26,20 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountBirth)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.AccountSex)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.AccountBank)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountCCCD)
-            </th>
+            </th>  *@
             <th>
                 @Html.DisplayNameFor(model => model.AccountViTri)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Luong)
             </th>
             <th>
@@ -47,7 +50,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountEnd)
-            </th>
+            </th> *@
             <th></th>
         </tr>
     </thead>
@@ -55,9 +58,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AccountName)
+                @Html.DisplayFor(modelItem => item.AccountID)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.AccountPhoneNumber)
             </td>
             <td>
@@ -65,35 +71,35 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountBirth)
-            </td>
+            </td> *@
             <td>
                 @Html.DisplayFor(modelItem => item.AccountSex)
             </td>
-            <td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.AccountBank)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountCCCD)
+            </td>  *@
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountViTri.VitriAccount)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Luong.SoLuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AccountViTri.ViTriAccountID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Luong.LuongID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HopDong.HopDongID)
+                @Html.DisplayFor(modelItem => item.HopDong.TimeHopDong)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountStart)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountEnd)
-            </td>
+            </td> *@
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.AccountID">Thông tin</a> |
+                <a asp-action="Edit" asp-route-id="@item.AccountID">Cập nhật</a> |
+                <a asp-action="Delete" asp-route-id="@item.AccountID">Xóa</a>
             </td>
         </tr>
 }

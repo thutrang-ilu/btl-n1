@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BTLN1.Data;
 using BTLN1.Models;
+using BTLN1.Models.Process;
+using BTLN1.Data;
 
 namespace BTLN1.Controllers
 {
     public class SaleController : Controller
     {
+        StringProcess strPro = new StringProcess();
         private readonly ApplicationDbContext _context;
 
         public SaleController(ApplicationDbContext context)
@@ -20,11 +22,22 @@ namespace BTLN1.Controllers
         }
 
         // GET: Sale
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Sale.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.SaleViTri);
-            return View(await applicationDbContext.ToListAsync());
+            var Sale = from m in _context.Sale.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.SaleViTri)// lấy toàn bộ liên kết
+                select m;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                Sale = Sale.Where(s => s.SaleName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                }
+            return View(await Sale.ToListAsync());
         }
+        // public async Task<IActionResult> Index()
+        // {
+        //     var applicationDbContext = _context.Sale.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.SaleViTri);
+        //     return View(await applicationDbContext.ToListAsync());
+        // }
 
         // GET: Sale/Details/5
         public async Task<IActionResult> Details(string id)
@@ -34,25 +47,37 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var sale = await _context.Sale
+            var Sale = await _context.Sale
                 .Include(s => s.HopDong)
                 .Include(s => s.Luong)
                 .Include(s => s.SaleViTri)
                 .FirstOrDefaultAsync(m => m.SaleID == id);
-            if (sale == null)
+            if (Sale == null)
             {
                 return NotFound();
             }
 
-            return View(sale);
+            return View(Sale);
         }
 
         // GET: Sale/Create
         public IActionResult Create()
         {
-            ViewData["HopDongID"] = new SelectList(_context.HopDong, "HopDongID", "HopDongID");
-            ViewData["LuongID"] = new SelectList(_context.Luong, "LuongID", "LuongID");
-            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "ViTriSaleID");
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong");
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong");
+            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "VitriSale");
+            var newID = "";
+            if (_context.Sale.Count() == 0)
+            {
+                //khoi tao 1 ma moi
+                newID = "SALE00001";
+            }
+            else
+            {
+                var id = _context.Sale.OrderByDescending(m => m.SaleID).First().SaleID;
+                newID = strPro.AutoGenerateKey(id);
+            }
+            ViewBag.SaleID = newID;
             return View();
         }
 
@@ -61,18 +86,18 @@ namespace BTLN1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SaleID,SaleName,SalePhoneNumber,SaleAddress,SaleBirth,SaleSex,SaleBank,SaleCCCD,ViTriSaleID,LuongID,HopDongID,SaleStart,SaleEnd")] Sale sale)
+        public async Task<IActionResult> Create([Bind("SaleID,SaleName,SalePhoneNumber,SaleAddress,SaleBirth,SaleSex,SaleBank,SaleCCCD,ViTriSaleID,LuongID,HopDongID,SaleStart,SaleEnd")] Sale Sale)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(sale);
+                _context.Add(Sale);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HopDongID"] = new SelectList(_context.HopDong, "HopDongID", "HopDongID", sale.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Luong, "LuongID", "LuongID", sale.LuongID);
-            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "ViTriSaleID", sale.ViTriSaleID);
-            return View(sale);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Sale.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Sale.LuongID);
+            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "VitriSale", Sale.ViTriSaleID);
+            return View(Sale);
         }
 
         // GET: Sale/Edit/5
@@ -83,15 +108,15 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var sale = await _context.Sale.FindAsync(id);
-            if (sale == null)
+            var Sale = await _context.Sale.FindAsync(id);
+            if (Sale == null)
             {
                 return NotFound();
             }
-            ViewData["HopDongID"] = new SelectList(_context.HopDong, "HopDongID", "HopDongID", sale.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Luong, "LuongID", "LuongID", sale.LuongID);
-            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "ViTriSaleID", sale.ViTriSaleID);
-            return View(sale);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Sale.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Sale.LuongID);
+            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "VitriSale", Sale.ViTriSaleID);
+            return View(Sale);
         }
 
         // POST: Sale/Edit/5
@@ -99,9 +124,9 @@ namespace BTLN1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("SaleID,SaleName,SalePhoneNumber,SaleAddress,SaleBirth,SaleSex,SaleBank,SaleCCCD,ViTriSaleID,LuongID,HopDongID,SaleStart,SaleEnd")] Sale sale)
+        public async Task<IActionResult> Edit(string id, [Bind("SaleID,SaleName,SalePhoneNumber,SaleAddress,SaleBirth,SaleSex,SaleBank,SaleCCCD,ViTriSaleID,LuongID,HopDongID,SaleStart,SaleEnd")] Sale Sale)
         {
-            if (id != sale.SaleID)
+            if (id != Sale.SaleID)
             {
                 return NotFound();
             }
@@ -110,12 +135,12 @@ namespace BTLN1.Controllers
             {
                 try
                 {
-                    _context.Update(sale);
+                    _context.Update(Sale);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SaleExists(sale.SaleID))
+                    if (!SaleExists(Sale.SaleID))
                     {
                         return NotFound();
                     }
@@ -126,10 +151,10 @@ namespace BTLN1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HopDongID"] = new SelectList(_context.HopDong, "HopDongID", "HopDongID", sale.HopDongID);
-            ViewData["LuongID"] = new SelectList(_context.Luong, "LuongID", "LuongID", sale.LuongID);
-            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "ViTriSaleID", sale.ViTriSaleID);
-            return View(sale);
+            ViewData["HopDongID"] = new SelectList(_context.Set<HopDong>(), "HopDongID", "TimeHopDong", Sale.HopDongID);
+            ViewData["LuongID"] = new SelectList(_context.Set<Luong>(), "LuongID", "SoLuong", Sale.LuongID);
+            ViewData["ViTriSaleID"] = new SelectList(_context.Set<SaleViTri>(), "ViTriSaleID", "VitriSale", Sale.ViTriSaleID);
+            return View(Sale);
         }
 
         // GET: Sale/Delete/5
@@ -140,17 +165,17 @@ namespace BTLN1.Controllers
                 return NotFound();
             }
 
-            var sale = await _context.Sale
+            var Sale = await _context.Sale
                 .Include(s => s.HopDong)
                 .Include(s => s.Luong)
                 .Include(s => s.SaleViTri)
                 .FirstOrDefaultAsync(m => m.SaleID == id);
-            if (sale == null)
+            if (Sale == null)
             {
                 return NotFound();
             }
 
-            return View(sale);
+            return View(Sale);
         }
 
         // POST: Sale/Delete/5
@@ -162,10 +187,10 @@ namespace BTLN1.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Sale'  is null.");
             }
-            var sale = await _context.Sale.FindAsync(id);
-            if (sale != null)
+            var Sale = await _context.Sale.FindAsync(id);
+            if (Sale != null)
             {
-                _context.Sale.Remove(sale);
+                _context.Sale.Remove(Sale);
             }
             
             await _context.SaveChangesAsync();

@@ -17,5 +17,8 @@ namespace BTLN1.Data
         public DbSet<BTLN1.Models.HopDong> HopDong { get; set; } = default!;
         public DbSet<BTLN1.Models.Luong> Luong { get; set; } = default!;
         public DbSet<BTLN1.Models.Sale> Sale { get; set; } = default!;
+        public DbSet<BTLN1.Models.SaleViTri> SaleViTri { get; set; } = default!;
+        public DbSet<BTLN1.Models.Staff> Staff { get; set; } = default!;
+        public DbSet<BTLN1.Models.StaffViTri> StaffViTri { get; set; } = default!;
     }
 }
