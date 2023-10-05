@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Thêm dữ liệu mới</h1>
 
-<h4>Sale</h4>
+<h4>Phòng Kinh Doanh</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="SaleID" class="control-label"></label>
-                <input asp-for="SaleID" class="form-control" />
+                <input asp-for="SaleID" class="form-control" value="@ViewBag.SaleID" readonly/>
                 <span asp-validation-for="SaleID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,12 +34,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="SaleBirth" class="control-label"></label>
-                <input asp-for="SaleBirth" class="form-control" />
+                <input asp-for="SaleBirth" class="form-control" type="date" id="SaleBirth" name="SaleBirth" />
                 <span asp-validation-for="SaleBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SaleSex" class="control-label"></label>
-                <input asp-for="SaleSex" class="form-control" />
+                <select id="SaleSex" name="SaleSex" class="form-control">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
                 <span asp-validation-for="SaleSex" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -53,25 +56,28 @@
                 <span asp-validation-for="SaleCCCD" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ViTriSaleID" class="control-label"></label>
+                <label>Vị Trí</label>
+                <label asp-for="ViTriSaleID" class="control-label" hidden></label>
                 <select asp-for="ViTriSaleID" class ="form-control" asp-items="ViewBag.ViTriSaleID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="LuongID" class="control-label"></label>
+                <label>Lương</label>
+                <label asp-for="LuongID" class="control-label" hidden></label>
                 <select asp-for="LuongID" class ="form-control" asp-items="ViewBag.LuongID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="HopDongID" class="control-label"></label>
+                <label>Hợp Đồng</label>
+                <label asp-for="HopDongID" class="control-label" hidden></label>
                 <select asp-for="HopDongID" class ="form-control" asp-items="ViewBag.HopDongID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SaleStart" class="control-label"></label>
-                <input asp-for="SaleStart" class="form-control" />
+                <input asp-for="SaleStart" class="form-control" type="date" />
                 <span asp-validation-for="SaleStart" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SaleEnd" class="control-label"></label>
-                <input asp-for="SaleEnd" class="form-control" />
+                <input asp-for="SaleEnd" class="form-control" type="date"/>
                 <span asp-validation-for="SaleEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -82,7 +88,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Danh sách phòng kinh doanh</a>
 </div>
 
 @section Scripts {
