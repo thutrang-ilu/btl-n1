@@ -1,6 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Quản lý nhân sự";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<p>Thông tin về công ty </p>
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+<ul>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="luong" asp-action="Index">Về Lương </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="HopDong" asp-action="Index">Các Mức Hạn Hợp Đồng</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="SaleViTri" asp-action="Index">Các Vị Trí Phòng Kinh Doanh</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="StaffViTri" asp-action="Index">Các Vị Trí Phòng Hành Chính</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="AccountViTri" asp-action="Index">Các Vị Trí Phòng Kế Toán</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="CeoViTri" asp-action="Index">Các Vị Trí Phòng Giám Đốc</a>
+    </li>
+</ul>
+</div>

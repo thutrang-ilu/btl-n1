@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rDI4tRFLE4jIgdg8i+Ud+DqcHVLBqba/wNCP3j25Nj8=",
+  "Hash": "aLaz6W/JA8Jd0EKf+GC8CqyqCYU0nzYUY6r52QaKsp0=",
   "Source": "BTLN1",
   "BasePath": "_content/BTLN1",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\BTL_PTPMQL\\BTLN1\\wwwroot\\css\\w3.css",
+      "SourceId": "BTLN1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BTL_PTPMQL\\BTLN1\\wwwroot\\",
+      "BasePath": "_content/BTLN1",
+      "RelativePath": "css/w3.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\w3.css"
     },
     {
       "Identity": "D:\\BTL_PTPMQL\\BTLN1\\wwwroot\\favicon.ico",

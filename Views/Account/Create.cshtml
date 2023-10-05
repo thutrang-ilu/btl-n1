@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AccountID" class="control-label"></label>
-                <input asp-for="AccountID" class="form-control" />
+                <input asp-for="AccountID" class="form-control" value="@ViewBag.AccountID" readonly/>
                 <span asp-validation-for="AccountID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="AccountBirth" class="control-label"></label>
-                <input asp-for="AccountBirth" class="form-control" />
+                <input asp-for="AccountBirth" class="form-control" type="date" id="AccountBirth" name="AccountBirth" />
                 <span asp-validation-for="AccountBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -57,27 +57,27 @@
             </div>
             <div class="form-group">
                 <label>Vị Trí</label>
-                <label asp-for="ViTriAccountID" class="control-label"></label>
+                <label asp-for="ViTriAccountID" class="control-label" hidden></label>
                 <select asp-for="ViTriAccountID" class ="form-control" asp-items="ViewBag.ViTriAccountID"></select>
             </div>
             <div class="form-group">
                 <label>Lương</label>
-                <label asp-for="LuongID" class="control-label"></label>
+                <label asp-for="LuongID" class="control-label" hidden></label>
                 <select asp-for="LuongID" class ="form-control" asp-items="ViewBag.LuongID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="HopDongID" class="control-label"></label>
+                <label>Hợp Đồng</label>
+                <label asp-for="HopDongID" class="control-label" hidden></label>
                 <select asp-for="HopDongID" class ="form-control" asp-items="ViewBag.HopDongID"></select>
             </div>
             <div class="form-group">
-                <label>Hợp Đồng</label>
                 <label asp-for="AccountStart" class="control-label"></label>
-                <input asp-for="AccountStart" class="form-control" />
+                <input asp-for="AccountStart" class="form-control" type="date" />
                 <span asp-validation-for="AccountStart" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AccountEnd" class="control-label"></label>
-                <input asp-for="AccountEnd" class="form-control" />
+                <input asp-for="AccountEnd" class="form-control" type="date"/>
                 <span asp-validation-for="AccountEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
