@@ -4,9 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Cập nhật</h1>
 
-<h4>Staff</h4>
+<h4>Phòng Hành Chính</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -49,17 +49,20 @@
                 <span asp-validation-for="StaffCCCD" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ViTriStaffID" class="control-label"></label>
+                <label>Vị Trí</label>
+                <label asp-for="ViTriStaffID" class="control-label" hidden></label>
                 <select asp-for="ViTriStaffID" class="form-control" asp-items="ViewBag.ViTriStaffID"></select>
                 <span asp-validation-for="ViTriStaffID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LuongID" class="control-label"></label>
+                <label>Lương</label>
+                <label asp-for="LuongID" class="control-label" hidden></label>
                 <select asp-for="LuongID" class="form-control" asp-items="ViewBag.LuongID"></select>
                 <span asp-validation-for="LuongID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HopDongID" class="control-label"></label>
+                <label>Hợp Đồng</label>
+                <label asp-for="HopDongID" class="control-label" hidden></label>
                 <select asp-for="HopDongID" class="form-control" asp-items="ViewBag.HopDongID"></select>
                 <span asp-validation-for="HopDongID" class="text-danger"></span>
             </div>
@@ -81,7 +84,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Danh sách phòng hành chính</a>
 </div>
 
 @section Scripts {

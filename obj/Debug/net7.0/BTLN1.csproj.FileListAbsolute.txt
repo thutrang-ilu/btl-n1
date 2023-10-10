@@ -524,3 +524,7 @@ D:\BTL_PTPMQL\BTLN1\obj\Debug\net7.0\refint\BTLN1.dll
 D:\BTL_PTPMQL\BTLN1\obj\Debug\net7.0\BTLN1.pdb
 D:\BTL_PTPMQL\BTLN1\obj\Debug\net7.0\BTLN1.genruntimeconfig.cache
 D:\BTL_PTPMQL\BTLN1\obj\Debug\net7.0\ref\BTLN1.dll
+D:\BTL_PTPMQL\BTLN1\bin\Debug\net7.0\JetBrains.Annotations.dll
+D:\BTL_PTPMQL\BTLN1\bin\Debug\net7.0\X.PagedList.dll
+D:\BTL_PTPMQL\BTLN1\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
+D:\BTL_PTPMQL\BTLN1\obj\Debug\net7.0\BTLN1.MvcApplicationPartsAssemblyInfo.cs

@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using BTLN1.Models;
 using BTLN1.Models.Process;
 using BTLN1.Data;
+using OfficeOpenXml;
+using X.PagedList;
 
 namespace  BTLN1.Controllers
 {
@@ -20,16 +22,21 @@ namespace  BTLN1.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index( int? page, int? PageSize)
         {
-            var CongNhan = from m in _context.CongNhan // lấy toàn bộ liên kết
-                select m;
-
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            ViewBag.PageSize = new List<SelectListItem>()
             {
-                CongNhan = CongNhan.Where(s => s.PhongBan.Contains(searchString)); //lọc theo chuỗi tìm kiếm
-                }
-            return View(await CongNhan.ToListAsync());
+                new SelectListItem() { Value="3", Text="3" },
+                new SelectListItem() { Value="5", Text="5" },
+                new SelectListItem() { Value="10", Text="10" },
+                new SelectListItem() { Value="15", Text="15" },
+                new SelectListItem() { Value="25", Text="25" },
+                new SelectListItem() { Value="50", Text="50" },
+            };
+            int pagesize =(PageSize ?? 3);
+            ViewBag.psize = pagesize;
+            var model = _context.CongNhan.ToList().ToPagedList(page ?? 1, pagesize);
+            return View(model);
         }
         // // GET: CongNhan
         // public async Task<IActionResult> Index()
@@ -234,6 +241,27 @@ namespace  BTLN1.Controllers
                 }
             }
             return View();
+        }
+        public IActionResult Download()
+        {
+            var fileName ="YourFileName" +".xlsx";
+            using(ExcelPackage excelPackage = new ExcelPackage())
+            {
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+                //thêm text cho cell A1
+                worksheet.Cells["A1"].Value = "MaCongNhan";
+                worksheet.Cells["B1"].Value = "PhongBan";
+                worksheet.Cells["C1"].Value = "ViTri";
+                worksheet.Cells["D1"].Value = "Luong";
+                worksheet.Cells["E1"].Value = "TrangThai";
+
+                //lấy ra tất cả Công Nhân
+                var congnhanList = _context.CongNhan.ToList();
+                worksheet.Cells["A2"].LoadFromCollection(congnhanList);
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+                //download file
+                return File(stream, "aplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+            }
         }
     }
 }
