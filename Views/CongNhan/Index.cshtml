@@ -7,7 +7,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>DANH SÁCH CÔNG NHÂN</h1>
+<h1><center>DANH SÁCH CÔNG NHÂN</center></h1>
 
 <p>
     <a asp-action="Create">Thêm mới công nhân</a>
@@ -21,9 +21,9 @@
         <input type="submit" value="Lọc" />
     </p>
 </form>
-<table class="table">
+<table class="w3-table-all">
     <thead>
-        <tr>
+        <tr class="w3-green w3-hover-red">
             <th>
                 @Html.DisplayNameFor(model => model.MaCongNhan)
             </th>
@@ -44,7 +44,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr class="w3-hover-text-blue">
             <td>
                 @Html.DisplayFor(modelItem => item.MaCongNhan)
             </td>
