@@ -38,13 +38,6 @@ namespace  BTLN1.Controllers
             var model = _context.CongNhan.ToList().ToPagedList(page ?? 1, pagesize);
             return View(model);
         }
-        // // GET: CongNhan
-        // public async Task<IActionResult> Index()
-        // {
-        //       return _context.CongNhan != null ? 
-        //                   View(await _context.CongNhan.ToListAsync()) :
-        //                   Problem("Entity set 'ApplicationDbContext.CongNhan'  is null.");
-        // }
 
         // GET: CongNhan/Details/5
         public async Task<IActionResult> Details(string id)

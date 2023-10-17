@@ -22,10 +22,16 @@ namespace BTLN1.Controllers
         }
 
         // GET: Ceo
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Ceo.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.CeoViTri);
-            return View(await applicationDbContext.ToListAsync());
+            var Ceo = from m in _context.Ceo.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.CeoViTri)// lấy toàn bộ liên kết
+                select m;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                Ceo = Ceo.Where(s => s.CeoName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                }
+            return View(await Ceo.ToListAsync());
         }
 
         // GET: Ceo/Details/5

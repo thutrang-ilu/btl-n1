@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.EntityFrameworkCore;
 using BTLN1.Models;
 using BTLN1.Models.Process;
@@ -23,10 +22,16 @@ namespace BTLN1.Controllers
         }
 
         // GET: Account
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Account.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.AccountViTri);
-            return View(await applicationDbContext.ToListAsync());
+            var Account = from m in _context.Account.Include(s => s.HopDong).Include(s => s.Luong).Include(s => s.AccountViTri)// lấy toàn bộ liên kết
+                select m;
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                Account = Account.Where(s => s.AccountName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                }
+            return View(await Account.ToListAsync());
         }
 
         // GET: Account/Details/5
@@ -60,7 +65,7 @@ namespace BTLN1.Controllers
             if (_context.Account.Count() == 0)
             {
                 //khoi tao 1 ma moi
-                newID = "ACCO00001";
+                newID = "ACCO01";
             }
             else
             {

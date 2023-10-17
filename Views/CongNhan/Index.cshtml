@@ -69,7 +69,7 @@
 }
     </tbody>
 </table>
-@using (Html.BeginForm("Index", "Person", FormMethod.Get, new {id = "form1"}))
+@using (Html.BeginForm("Index", "CongNhan", FormMethod.Get, new {id = "form1"}))
 {
     <div class="row">
         <div class="col-md-11">
@@ -83,3 +83,11 @@
         </div>
     </div>
 }
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(function()    {
+        $("#pageSize").change(function() {
+            $("#form1").submit();
+        });
+    });
+</script>
