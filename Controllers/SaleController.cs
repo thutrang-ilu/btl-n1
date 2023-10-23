@@ -70,7 +70,7 @@ namespace BTLN1.Controllers
             if (_context.Sale.Count() == 0)
             {
                 //khoi tao 1 ma moi
-                newID = "SALE00001";
+                newID = "SALE01";
             }
             else
             {

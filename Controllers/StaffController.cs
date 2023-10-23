@@ -69,7 +69,7 @@ namespace BTLN1.Controllers
             if (_context.Staff.Count() == 0)
             {
                 //khoi tao 1 ma moi
-                newID = "STAFF00001";
+                newID = "STAFF01";
             }
             else
             {
